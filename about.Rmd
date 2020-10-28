@@ -1,0 +1,53 @@
+---
+title: "About me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Education
+
+**Columbia University, Mailman School of Public Health** - New York, NY [Expected May 2022]{style="float:right"}  
+Master of Science (MS) in Biostatistics  		
+**Current Coursework:** Biostatistical Methods I, Probability, Principles of Epidemiology, Data Science I 
+
+**Wellesley College** – Wellesley, MA [2014–2018]{style="float:right"}    
+Bachelor of Arts (BA) in Psychology, Minor in Computer Science  
+**GPA:** 3.81/4.00  
+**Awards and Honors:** Member of Phi Beta Kappa and Psi Chi honor society
+
+
+## Experience
+
+**Harvard Medical School and Massachusetts General Hospital** - Boston, MA  
+*Research Technician at the Rosas Lab* [May 2019 – July 2020]{style="float:right"}  
+•	Investigated cortical thickness and diffusion measures in the brain in correlation with cognitive test scores in Huntington’s Disease and Down Syndrome patients   
+•	Processed and analyzed MRI data of 400+ subjects using general linear modeling and longitudinal analysis through pipelines made with Linux shell scripting and the brain imaging software, FreeSurfer  
+•	Identified and visualized statistical trends through data wrangling and analysis in R  
+•	Ensured data acquisition, submission, and storage were prompt and accurate for a sponsored clinical trial  
+•	Trained and supervised 2 peers to operate MRI machines on 30+ study subjects  
+
+*Clinical Research Coordinator at the Rosas Lab* [Oct 2018 – May 2019]{style="float:right"}  
+•	Developed, implemented, and managed several REDCap databases containing 5,000+ data points for new and ongoing clinical research studies in Huntington’s Disease and Down Syndrome  
+•	Organized and analyzed clinical data of 800+ subjects to identify statistical trends in Microsoft Excel  
+
+**Massachusetts Institute of Technology** - Cambridge, MA	  
+*Research Assistant at the Choi Lab* [June 2017 – Apr 2018]{style="float:right"}    
+•	Assisted in the design, data collection, and data analysis of a neuroscience project investigating inflammation-induced depression in mice models  
+•	Mastered various laboratory techniques such as cranial surgery, brain infusion, DNA extraction, immunostaining, perfusion, brain isolation, and various behavioral tests 
+
+**New York State Psychiatric Institute/Child Psychiatric Epidemiology Group at Columbia University** - New York, NY  
+*Intern* 	[June – Aug 2016]{style="float:right"}  
+•	Conducted structured interviews that were up to six hours long with 20 research participants for a large-scale, longitudinal epidemiology study  
+•	Handled and communicated highly confidential and sensitive personal information and clinical issues to clinicians  
+•	Recruited 70 additional research participants in person and over the phone
+
+
+## Skills
+
+
+## Extracurricular
+
+President of Wellesley Asian Dance Organization for 1 year  
+Secretary of Wellesley Asian Dance Organization for 1 year
