@@ -8,7 +8,7 @@ output:
 
 <img src="garfield.jpg" style="width:50%">
 
-A candid shot of my beautiful and lazy cat, Garfield
+A picture of my beautiful and lazy cat, Garfield. #nofilter
 
 # About Me
 
