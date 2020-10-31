@@ -4,6 +4,7 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    source: embed
 ---
 
 ```{r setup, include=FALSE}
@@ -20,17 +21,21 @@ rest_inspec <-
   rest_inspec %>% 
   select(boro, critical_flag, cuisine_description, score, grade) %>% 
   filter(boro == "STATEN ISLAND",
-         !is.na(grade))
+         !is.na(grade),
+         !str_detect(cuisine_description, "[Ww]ater|[Jj]uice|[Cc]offee")) %>% 
+  mutate(cuisine_description = recode(cuisine_description, "Latin (Cuban, Dominican, Puerto Rican, South & Central American)" = "Latin"))
 ```
 
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Distribution of inspection scores by cuisine type
 
-```{r}
-
+```{r boxplot}
+rest_inspec %>% 
+  mutate(cuisine_description = fct_reorder(cuisine_description, score)) %>%
+  plot_ly(y = ~score, color = ~cuisine_description, type = "box", colors = "viridis")
 ```
 
 Column {data-width=350}
@@ -38,7 +43,7 @@ Column {data-width=350}
 
 ### Chart B
 
-```{r}
+```{r histogram}
 
 ```
 
