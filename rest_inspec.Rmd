@@ -1,5 +1,5 @@
 ---
-title: "NYC Restaurant Inspections"
+title: "NYC Restaurant Inspections in Staten Island"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -41,15 +41,29 @@ rest_inspec %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Distribution of scores received by all restaurants
 
 ```{r histogram}
-
+rest_inspec %>% 
+  plot_ly(x = ~score, type = "histogram")
 ```
 
-### Chart C
+### The number of critical vs not critical by grade
 
-```{r}
+```{r bar}
+crit_bygrade <-
+  rest_inspec %>% 
+  filter(critical_flag != "Not Applicable",
+         grade %in% c("A", "B", "C")) %>% 
+  group_by(grade, critical_flag) %>% 
+  count() %>% 
+  ungroup() %>% 
+  pivot_wider(names_from = critical_flag,
+              values_from = n)
 
+crit_bygrade %>%
+  plot_ly(x = ~grade, y = ~`Not Critical`, type = "bar", name = "Not Critical") %>%
+  add_trace(y = ~Critical, name = "Critical") %>% 
+  layout(yaxis = list(title = 'count'), barmode = 'stack')
 ```
 
