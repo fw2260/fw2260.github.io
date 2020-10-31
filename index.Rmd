@@ -9,3 +9,5 @@ output:
 # This is Lily's awesome website
 
 [About me](about.html)
+
+[NYC Restaurant Inspection](rest_inspec.html)

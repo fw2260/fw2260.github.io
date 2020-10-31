@@ -17,6 +17,7 @@ library(plotly)
 ```{r clean_data}
 data(rest_inspec)
 
+# Take out all locations that serve only beverages and shorten the Latin cuisine name
 rest_inspec <-
   rest_inspec %>% 
   select(boro, critical_flag, cuisine_description, score, grade) %>% 
@@ -45,10 +46,11 @@ Column {data-width=350}
 
 ```{r histogram}
 rest_inspec %>% 
-  plot_ly(x = ~score, type = "histogram")
+  plot_ly(x = ~score, type = "histogram", marker = list(color = "purple")) %>% 
+  layout(yaxis = list(title = "count"))
 ```
 
-### The number of critical vs not critical by grade
+### Percentage of critical vs not critical violations by grade
 
 ```{r bar}
 crit_bygrade <-
@@ -58,12 +60,22 @@ crit_bygrade <-
   group_by(grade, critical_flag) %>% 
   count() %>% 
   ungroup() %>% 
-  pivot_wider(names_from = critical_flag,
-              values_from = n)
+  janitor::clean_names()
 
+# Make a table of totals to calculate percentage
+totals <-
+  crit_bygrade %>% 
+  group_by(grade) %>% 
+  summarize(total = sum(n)) 
+
+crit_bygrade <-
+  left_join(crit_bygrade, totals) %>% 
+  mutate(percentage = n / total * 100,
+         text_label = str_c("Count: ", n)) 
+
+# Make the graph  
 crit_bygrade %>%
-  plot_ly(x = ~grade, y = ~`Not Critical`, type = "bar", name = "Not Critical") %>%
-  add_trace(y = ~Critical, name = "Critical") %>% 
-  layout(yaxis = list(title = 'count'), barmode = 'stack')
+  plot_ly(x = ~grade, y = ~percentage, color = ~critical_flag, type = "bar", colors = "viridis", text = ~text_label) %>%
+  layout(yaxis = list(title = "percentage (%)"), barmode = "stack")
 ```
 
