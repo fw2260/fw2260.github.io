@@ -7,6 +7,8 @@ navbar:
       href: about.html
     - icon: fa-envelope fa-lg
       href: mailto:<fw2260@columbia.edu>
+    - icon: fab fa-linkedin
+      href: https://www.linkedin.com/in/lily-wang-19b6a2b7/
     - icon: fa-github fa-lg
       href: http://github.com/fw2260/
 output:
